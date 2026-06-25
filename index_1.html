@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connor McGavin — CS Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F8F9FA;
+      --surface:    #FFFFFF;
+      --border:     #E4E7EB;
+      --border-strong: #C9CDD4;
+      --accent:     #2563EB;
+      --accent-light: #EFF6FF;
+      --text:       #111827;
+      --muted:      #6B7280;
+      --muted-light:#9CA3AF;
+      --mono:       'DM Mono', monospace;
+      --sans:       'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248,249,250,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-strong);
+      color: var(--muted);
+      background: var(--surface);
+    }
+
+    /* SECTIONS */
+    section { max-width: 1080px; margin: 0 auto; padding: 4rem 2rem; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .section-header h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .section-divider {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-count {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted-light);
+    }
+
+    /* FEATURED GRID */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* PROJECT CARD */
+    .card {
+      background: var(--surface);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      transition: background 0.15s;
+    }
+    .card:hover { background: var(--accent-light); }
+
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .card-links { display: flex; gap: 0.4rem; }
+    .card-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      background: var(--bg);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .card-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+    .card p {
+      font-size: 0.825rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .card-footer { display: flex; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.25rem; }
+    .lang-pill {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid #BFDBFE;
+    }
+
+    /* RESEARCH */
+    .research-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .research-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.2px;
+    }
+    .research-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .research-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      text-align: right;
+      line-height: 1.8;
+    }
+    .research-meta strong { color: var(--accent); display: block; font-size: 0.8rem; }
+
+    /* COURSE GROUPS */
+    .course-group { margin-bottom: 2.75rem; }
+    .course-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.75rem;
+    }
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.15s;
+    }
+    .course-card:hover { border-color: var(--accent); }
+    .course-card h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .course-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .course-card .card-footer { padding-top: 0.35rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted-light);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .research-card { grid-template-columns: 1fr; }
+      .research-meta { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">Connor McGavin <span>/ portfolio</span></a>
+  <ul class="nav-links">
+    <li><a href="#featured">Featured</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#coursework">Coursework</a></li>
+    <li><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">CS Portfolio</p>
+  <h1>Connor McGavin</h1>
+  <p class="hero-desc">
+    CS student at Weber State University graduating Summer 2026.
+    I build full-stack web apps, desktop software, and research tools
+    across Python, Java, C#, and .NET.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">Python</span>
+    <span class="tag">Java</span>
+    <span class="tag">C# / .NET</span>
+    <span class="tag">Django</span>
+    <span class="tag">JavaScript</span>
+    <span class="tag">PHP</span>
+    <span class="tag">SQL</span>
+    <span class="tag">REST APIs</span>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section id="featured">
+  <div class="section-header">
+    <h2>Featured Projects</h2>
+    <div class="section-divider"></div>
+    <span class="section-count">6 projects</span>
+  </div>
+  <div class="featured-grid">
+
+    <div class="card">
+      <div class="card-top">
+        <h3>BiteByByte</h3>
+        <div class="card-links"><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></div>
+      </div>
+      <p>Full-stack food ordering platform with four user roles (Admin, Customer, Driver, Kitchen), a complete order lifecycle, shopping cart, Stripe payment integration, and an admin panel for menu and user management.</p>
+      <div class="card-footer">
+        <span class="lang-pill">C#</span>
+        <span class="lang-pill">.NET</span>
+        <span class="lang-pill">Clean Architecture</span>
+        <span class="lang-pill">Stripe</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>WSU Grant Portal</h3>
+        <div class="card-links"><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></div>
+      </div>
+      <p>Capstone project — a grant submission and management portal for WSU faculty built on .NET Clean Architecture (Core / Application / Infrastructure / Web) with multi-role access and SQL Server.</p>
+      <div class="card-footer">
+        <span class="lang-pill">C#</span>
+        <span class="lang-pill">.NET</span>
+        <span class="lang-pill">Clean Architecture</span>
+        <span class="lang-pill">SQL Server</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>ConceptCenter</h3>
+        <div class="card-links"><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></div>
+      </div>
+      <p>Client-facing project management system with multi-role access (Admin, Student, Client), threaded messaging, hour logging, part requests, invoice tracking, and event calendar. Built on four-layer .NET Clean Architecture.</p>
+      <div class="card-footer">
+        <span class="lang-pill">C#</span>
+        <span class="lang-pill">.NET</span>
+        <span class="lang-pill">Razor Pages</span>
+        <span class="lang-pill">SQL Server</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Stock Trader</h3>
+        <div class="card-links"><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></div>
+      </div>
+      <p>Paper trading simulator with live stock prices via the yfinance API, buy/sell execution, cash balance tracking, unrealized P&L calculations, paginated trade history, and full user authentication.</p>
+      <div class="card-footer">
+        <span class="lang-pill">Python</span>
+        <span class="lang-pill">Django</span>
+        <span class="lang-pill">yfinance API</span>
+        <span class="lang-pill">SQLite</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Ashes of Dawn</h3>
+        <div class="card-links"><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></div>
+      </div>
+      <p>Java Swing RPG with a graphical 800×600 window, HP/MP/XP progress bars, a full inventory and weapon equip system with icons, enemy combat (goblin, giant, dragon), and session stats saved to CSV.</p>
+      <div class="card-footer">
+        <span class="lang-pill">Java</span>
+        <span class="lang-pill">Swing GUI</span>
+        <span class="lang-pill">OOP</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Monopoly Monte Carlo Simulation</h3>
+        <div class="card-links"><a href="https://github.com/mcgavin1117" target="_blank">GitHub ↗</a></div>
+      </div>
+      <p>Simulates up to 1 million Monopoly turns to calculate the statistical probability of landing on all 40 board spaces. Full Chance and Community Chest decks as enums, jail logic, and multi-scale runs (1K / 10K / 100K / 1M).</p>
+      <div class="card-footer">
+        <span class="lang-pill">Java</span>
+        <span class="lang-pill">Monte Carlo</span>
+        <span class="lang-pill">Probability</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header">
+    <h2>Research</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="research-card">
+    <div>
+      <h3>LLM-Based Program Reduction</h3>
+      <p>Undergraduate research with Professor Arpit evaluating Gemini's ability to reduce Java test methods using the Defects4J benchmark suite (30 bugs). Methodology uses a single prompt per method with no error message, classifying results as TN / TP / FP / FN against a hand-reduced ground truth. Key finding: Gemini explicitly requested error messages to identify failing assertions, raising a methodological question about prompt design in LLM-assisted debugging.</p>
+      <div class="card-footer" style="margin-top: 0.85rem;">
+        <span class="lang-pill">Python</span>
+        <span class="lang-pill">Gemini API</span>
+        <span class="lang-pill">Defects4J</span>
+        <span class="lang-pill">Java</span>
+        <span class="lang-pill">LLM Evaluation</span>
+      </div>
+    </div>
+    <div class="research-meta">
+      <strong>WSU Research</strong>
+      2025 – 2026
+    </div>
+  </div>
+</section>
+
+<!-- COURSEWORK -->
+<section id="coursework">
+  <div class="section-header">
+    <h2>Coursework</h2>
+    <div class="section-divider"></div>
+    <span class="section-count">by class</span>
+  </div>
+
+  <div class="course-group">
+    <div class="course-label">CS 3620 — Web Development · Django / Python</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>Python Text Adventure</h4>
+        <p>OOP command-line RPG with inventory system, branching story choices, and session logging to file.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">OOP</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Book REST API</h4>
+        <p>Django REST Framework API with serializers and ViewSets filtered by genre with full CRUD endpoints.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">Django REST</span></div>
+      </div>
+      <div class="course-card">
+        <h4>CV Generator</h4>
+        <p>Django web app that takes user input through a form and generates a downloadable PDF resume using pdfkit.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">Django</span><span class="lang-pill">pdfkit</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Mad Libs App</h4>
+        <p>15 built-in story templates with dynamic word forms, random story generation, and user-submitted custom templates.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">Django</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Web Scraper</h4>
+        <p>Django app that takes any URL, extracts all hyperlinks using BeautifulSoup, and stores results in SQLite.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">BeautifulSoup</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Book Library</h4>
+        <p>Book browsing app with search by title and category, pagination, and a clean card-based UI.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">Django</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Portfolio Database</h4>
+        <p>Django CRUD app with login-protected add/edit/delete for portfolio items and a contact form.</p>
+        <div class="card-footer"><span class="lang-pill">Python</span><span class="lang-pill">Django</span><span class="lang-pill">Auth</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-label">CS 3280 — Windows Programming · C# / WPF</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>Invoice Management System</h4>
+        <p>Windows desktop app for creating and managing invoices with line items, auto-calculated totals, and search. Clean layered architecture with thorough XML documentation.</p>
+        <div class="card-footer"><span class="lang-pill">C#</span><span class="lang-pill">WPF</span><span class="lang-pill">SQL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-label">CS 2420 — Data Structures & Algorithms · Java</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>EzRent — BFS Parking Navigator</h4>
+        <p>Java Swing app using Breadth-First Search on a matrix grid to find the shortest path to an open parking spot. Demonstrates graph traversal, queues, and 2D array navigation.</p>
+        <div class="card-footer"><span class="lang-pill">Java</span><span class="lang-pill">BFS</span><span class="lang-pill">Swing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-label">CSIS 2440 — Web Technologies · PHP / MySQL</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>Web Security Progression</h4>
+        <p>Three-version login system: insecure (plaintext file storage) → less-insecure → more-secure (MySQL + hashed passwords). Demonstrates SQL injection and authentication vulnerabilities.</p>
+        <div class="card-footer"><span class="lang-pill">PHP</span><span class="lang-pill">MySQL</span><span class="lang-pill">Security</span></div>
+      </div>
+      <div class="course-card">
+        <h4>PHP E-Commerce Catalog</h4>
+        <p>Multi-page PHP storefront with user login, product catalog, shopping cart, and account creation backed by MySQL.</p>
+        <div class="card-footer"><span class="lang-pill">PHP</span><span class="lang-pill">MySQL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-label">CSIS 1430 — Web Design · HTML / CSS / JavaScript</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>Tic Tac Toe</h4>
+        <p>Browser-based Tic Tac Toe game with score tracking across rounds.</p>
+        <div class="card-footer"><span class="lang-pill">JavaScript</span><span class="lang-pill">HTML/CSS</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Pizza Website</h4>
+        <p>Multi-page pizza ordering site with specialty menu and a build-your-own pizza configurator.</p>
+        <div class="card-footer"><span class="lang-pill">HTML</span><span class="lang-pill">CSS</span><span class="lang-pill">JavaScript</span></div>
+      </div>
+      <div class="course-card">
+        <h4>Little Boxes</h4>
+        <p>CSS beach-sunset illustration built entirely from div elements and color gradients — no images.</p>
+        <div class="card-footer"><span class="lang-pill">HTML</span><span class="lang-pill">CSS</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-label">CSIS 1410 — Object-Oriented Programming · Java</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>OOP Progression</h4>
+        <p>Weekly assignments covering Java OOP fundamentals: itinerary app, employee class hierarchy, character builder with inheritance (Human / DarkElf), and shape polymorphism — culminating in Ashes of Dawn.</p>
+        <div class="card-footer"><span class="lang-pill">Java</span><span class="lang-pill">OOP</span><span class="lang-pill">Inheritance</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>Connor McGavin &nbsp;·&nbsp; Weber State University CS '26 &nbsp;·&nbsp; <a href="https://github.com/mcgavin1117" target="_blank">github.com/mcgavin1117</a></p>
+</footer>
+
+</body>
+</html>
