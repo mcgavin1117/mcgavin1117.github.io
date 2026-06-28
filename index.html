@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,6 @@
       --muted-light:  #9CA3AF;
       --sans:         'Inter', sans-serif;
       --mono:         'DM Mono', monospace;
-      /* RPG */
       --rpg-bg:       #0a0a0a;
       --rpg-surface:  #111111;
       --rpg-border:   #2a2a2a;
@@ -36,8 +36,6 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
-
-    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(248,249,250,0.95); backdrop-filter: blur(8px);
@@ -49,31 +47,19 @@
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.15s; }
     .nav-links a:hover { color: var(--text); }
-
-    /* ── HERO ── */
     .hero { max-width: 860px; margin: 0 auto; padding: 6rem 2rem 4rem; border-bottom: 1px solid var(--border); }
     .hero-eyebrow { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 600; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 1.25rem; }
     .hero-desc { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin-bottom: 2rem; line-height: 1.75; }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .tag { font-family: var(--mono); font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid var(--border-strong); color: var(--muted); background: var(--surface); }
-    .play-cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--text); color: var(--bg);
-      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.05em;
-      padding: 0.65rem 1.25rem; border-radius: 4px; text-decoration: none;
-      transition: opacity 0.15s;
-    }
+    .play-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--text); color: var(--bg); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.05em; padding: 0.65rem 1.25rem; border-radius: 4px; text-decoration: none; transition: opacity 0.15s; }
     .play-cta:hover { opacity: 0.85; }
-
-    /* ── SECTION HEADERS ── */
     .sec-wrap { max-width: 1080px; margin: 0 auto; padding: 4rem 2rem; }
     .sec-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 2rem; }
     .sec-head h2 { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
     .sec-rule { flex: 1; height: 1px; background: var(--border); }
     .sec-count { font-family: var(--mono); font-size: 0.72rem; color: var(--muted-light); }
-
-    /* ── FEATURED GRID ── */
     .featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
     .card { background: var(--surface); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.65rem; transition: background 0.15s; }
     .card:hover { background: var(--accent-light); }
@@ -85,15 +71,11 @@
     .card p { font-size: 0.825rem; color: var(--muted); line-height: 1.65; flex: 1; }
     .card-footer { display: flex; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.25rem; }
     .pill { font-family: var(--mono); font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 20px; background: var(--accent-light); color: var(--accent); border: 1px solid #BFDBFE; }
-
-    /* ── RESEARCH ── */
     .research-card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 1.75rem; display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; }
     .research-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: -0.2px; }
     .research-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
     .research-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); white-space: nowrap; text-align: right; line-height: 1.8; }
     .research-meta strong { color: var(--accent); display: block; }
-
-    /* ── COURSEWORK ── */
     .course-group { margin-bottom: 2.5rem; }
     .course-label { font-size: 0.75rem; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
     .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 0.75rem; }
@@ -103,28 +85,12 @@
     .course-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
     .course-card a { font-size: 0.7rem; font-family: var(--mono); color: var(--accent); text-decoration: none; margin-top: 0.25rem; }
     .course-card a:hover { text-decoration: underline; }
-
-    /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted-light); }
     footer a { color: var(--accent); text-decoration: none; }
 
-    /* ════════════════════════════════
-       RPG GAME SECTION
-    ════════════════════════════════ */
-    #game-section {
-      background: var(--rpg-bg);
-      border-top: 1px solid var(--rpg-warm);
-      border-bottom: 1px solid var(--rpg-warm);
-      padding: 4rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    #game-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.06) 0%, transparent 60%);
-      pointer-events: none;
-    }
+    /* RPG GAME SECTION */
+    #game-section { background: var(--rpg-bg); border-top: 1px solid var(--rpg-warm); border-bottom: 1px solid var(--rpg-warm); padding: 4rem 2rem; position: relative; overflow: hidden; }
+    #game-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.06) 0%, transparent 60%); pointer-events: none; }
     .game-wrap { max-width: 820px; margin: 0 auto; position: relative; }
     .game-eyebrow { font-family: var(--mono); font-size: 0.68rem; color: var(--rpg-muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center; }
     .game-title { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--rpg-gold-l); text-align: center; letter-spacing: 0.05em; margin-bottom: 0.4rem; text-shadow: 0 0 30px rgba(201,151,58,0.25); }
@@ -132,22 +98,10 @@
     .game-source { text-align: center; margin-bottom: 1.5rem; }
     .game-source a { font-family: var(--mono); font-size: 0.68rem; color: var(--rpg-gold); text-decoration: none; border-bottom: 1px solid var(--rpg-gold-dim); }
     .game-rule { width: 200px; height: 1px; background: linear-gradient(to right, transparent, var(--rpg-warm), transparent); margin: 0 auto 1.5rem; }
-
-    /* GAME TITLE SCREEN */
     .game-title-screen { text-align: center; padding: 2rem 1rem; }
-    .game-start-btn {
-      background: transparent; border: 2px solid var(--rpg-gold);
-      color: var(--rpg-gold); font-family: var(--display); font-size: 0.85rem;
-      letter-spacing: 0.15em; padding: 0.75rem 2.5rem; cursor: pointer; transition: all 0.2s;
-    }
+    .game-start-btn { background: transparent; border: 2px solid var(--rpg-gold); color: var(--rpg-gold); font-family: var(--display); font-size: 0.85rem; letter-spacing: 0.15em; padding: 0.75rem 2.5rem; cursor: pointer; transition: all 0.2s; }
     .game-start-btn:hover { background: var(--rpg-gold); color: var(--rpg-bg); }
-
-    /* STATS */
-    .stats-bar {
-      background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px;
-      padding: 0.75rem 1rem; display: grid; grid-template-columns: 1fr 1fr 1fr auto;
-      gap: 1rem; align-items: center; margin-bottom: 0.6rem;
-    }
+    .stats-bar { background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px; padding: 0.75rem 1rem; display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 1rem; align-items: center; margin-bottom: 0.6rem; }
     .stat { display: flex; flex-direction: column; gap: 3px; }
     .stat-label { font-family: var(--display); font-size: 0.58rem; color: var(--rpg-muted-l); letter-spacing: 0.12em; text-transform: uppercase; }
     .stat-row { display: flex; align-items: center; gap: 0.5rem; }
@@ -160,67 +114,31 @@
     .weapon-display { text-align: right; }
     .weapon-label { font-family: var(--display); font-size: 0.58rem; color: var(--rpg-muted-l); letter-spacing: 0.1em; text-transform: uppercase; }
     .weapon-name { color: var(--rpg-cyan); font-size: 0.85rem; font-family: var(--body); font-weight: 600; }
-
-    /* MAIN TEXT */
-    .main-text {
-      background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px;
-      padding: 1.5rem; min-height: 130px; margin-bottom: 0.6rem;
-      font-size: 1.05rem; line-height: 1.75; color: var(--rpg-text);
-      white-space: pre-line; font-family: var(--body);
-    }
+    .main-text { background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px; padding: 1.5rem; min-height: 130px; margin-bottom: 0.6rem; font-size: 1.05rem; line-height: 1.75; color: var(--rpg-text); white-space: pre-line; font-family: var(--body); }
     .choices { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.6rem; }
-    .choice-btn {
-      background: #0d0d0d; border: 1px solid var(--rpg-border);
-      color: var(--rpg-muted); font-family: var(--body); font-size: 1rem;
-      padding: 0.55rem 1rem; cursor: pointer; text-align: left; border-radius: 2px; transition: all 0.15s;
-    }
+    .choice-btn { background: #0d0d0d; border: 1px solid var(--rpg-border); color: var(--rpg-muted); font-family: var(--body); font-size: 1rem; padding: 0.55rem 1rem; cursor: pointer; text-align: left; border-radius: 2px; transition: all 0.15s; }
     .choice-btn:hover:not(:disabled) { border-color: var(--rpg-gold); color: var(--rpg-gold); background: rgba(201,151,58,0.05); }
     .choice-btn:disabled { opacity: 0; pointer-events: none; }
-
-    .inv-toggle {
-      background: transparent; border: 1px solid var(--rpg-border);
-      color: var(--rpg-muted-l); font-family: var(--display); font-size: 0.65rem;
-      letter-spacing: 0.1em; padding: 0.35rem 1rem; cursor: pointer; border-radius: 2px;
-      margin-bottom: 0.5rem; transition: all 0.15s;
-    }
+    .inv-toggle { background: transparent; border: 1px solid var(--rpg-border); color: var(--rpg-muted-l); font-family: var(--display); font-size: 0.65rem; letter-spacing: 0.1em; padding: 0.35rem 1rem; cursor: pointer; border-radius: 2px; margin-bottom: 0.5rem; transition: all 0.15s; }
     .inv-toggle:hover { border-color: var(--rpg-gold); color: var(--rpg-gold); }
     .inv-panel { display: none; background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px; padding: 1rem; margin-bottom: 0.6rem; }
     .inv-panel.open { display: block; }
     .inv-label { font-family: var(--display); font-size: 0.6rem; color: var(--rpg-muted-l); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
     .inv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.4rem; }
-    .item-btn {
-      background: #111; border: 1px solid var(--rpg-border);
-      color: var(--rpg-muted); font-family: var(--body); font-size: 0.9rem;
-      padding: 0.45rem; cursor: pointer; border-radius: 2px; min-height: 38px; transition: all 0.15s;
-    }
+    .item-btn { background: #111; border: 1px solid var(--rpg-border); color: var(--rpg-muted); font-family: var(--body); font-size: 0.9rem; padding: 0.45rem; cursor: pointer; border-radius: 2px; min-height: 38px; transition: all 0.15s; }
     .item-btn:hover:not(:disabled) { border-color: var(--rpg-gold); color: var(--rpg-gold); }
     .item-btn.empty { opacity: 0.2; cursor: default; }
-
-    .game-over-panel, .win-panel {
-      display: none; text-align: center; padding: 2rem;
-      background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px;
-    }
+    .game-over-panel, .win-panel { display: none; text-align: center; padding: 2rem; background: #0d0d0d; border: 1px solid var(--rpg-warm); border-radius: 3px; }
     .game-over-panel h3 { font-family: var(--display); font-size: 1.6rem; color: #8b2020; margin-bottom: 0.6rem; letter-spacing: 0.05em; }
     .win-panel h3 { font-family: var(--display); font-size: 1.6rem; color: var(--rpg-gold); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
     .game-over-panel p, .win-panel p { color: var(--rpg-muted); font-family: var(--body); font-style: italic; margin-bottom: 1.25rem; font-size: 0.95rem; }
-    .restart-btn {
-      background: transparent; border: 1px solid var(--rpg-gold);
-      color: var(--rpg-gold); font-family: var(--display); font-size: 0.75rem;
-      letter-spacing: 0.12em; padding: 0.55rem 1.5rem; cursor: pointer; transition: all 0.2s;
-    }
+    .restart-btn { background: transparent; border: 1px solid var(--rpg-gold); color: var(--rpg-gold); font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.12em; padding: 0.55rem 1.5rem; cursor: pointer; transition: all 0.2s; }
     .restart-btn:hover { background: var(--rpg-gold); color: var(--rpg-bg); }
-
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .stats-bar { grid-template-columns: 1fr 1fr; }
-      .weapon-display { grid-column: 1/-1; text-align: left; }
-      .research-card { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 600px) { .nav-links { display: none; } .stats-bar { grid-template-columns: 1fr 1fr; } .weapon-display { grid-column: 1/-1; text-align: left; } .research-card { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">Connor McGavin <span>/ portfolio</span></a>
   <ul class="nav-links">
@@ -232,7 +150,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <p class="hero-eyebrow">CS Portfolio</p>
   <h1>Connor McGavin</h1>
@@ -244,7 +161,6 @@
   <a href="#game-section" class="play-cta">▶ Play Ashes of Dawn</a>
 </div>
 
-<!-- ════ RPG GAME SECTION ════ -->
 <div id="game-section">
   <div class="game-wrap">
     <p class="game-eyebrow">Featured Project</p>
@@ -252,13 +168,9 @@
     <p class="game-subtitle">A browser port of my original Java Swing RPG — built for CSIS 1410.</p>
     <div class="game-source"><a href="https://github.com/mcgavin1117/CSIS1410" target="_blank">View original Java source on GitHub ↗</a></div>
     <div class="game-rule"></div>
-
-    <!-- TITLE SCREEN -->
     <div class="game-title-screen" id="gameTitleScreen">
       <button class="game-start-btn" id="startBtn">Begin Your Quest</button>
     </div>
-
-    <!-- GAME UI -->
     <div id="gameUI" style="display:none;">
       <div class="stats-bar">
         <div class="stat"><span class="stat-label">HP</span><div class="stat-row"><div class="bar-track"><div class="bar-fill hp-fill" id="hpBar"></div></div><span class="stat-num" id="hpNum">10/10</span></div></div>
@@ -286,7 +198,6 @@
         </div>
       </div>
     </div>
-
     <div class="game-over-panel" id="gameOverPanel">
       <h3>You Have Fallen</h3>
       <p id="gameOverStats"></p>
@@ -300,7 +211,6 @@
   </div>
 </div>
 
-<!-- FEATURED -->
 <div class="sec-wrap" id="featured">
   <div class="sec-head"><h2>Featured Projects</h2><div class="sec-rule"></div><span class="sec-count">6 projects</span></div>
   <div class="featured-grid">
@@ -337,7 +247,6 @@
   </div>
 </div>
 
-<!-- RESEARCH -->
 <div class="sec-wrap" id="research">
   <div class="sec-head"><h2>Research</h2><div class="sec-rule"></div></div>
   <div class="research-card">
@@ -349,10 +258,8 @@
   </div>
 </div>
 
-<!-- COURSEWORK -->
 <div class="sec-wrap" id="coursework">
   <div class="sec-head"><h2>Coursework</h2><div class="sec-rule"></div><span class="sec-count">by class</span></div>
-
   <div class="course-group">
     <div class="course-label">CS 3620 — Web Development · Django / Python</div>
     <div class="course-grid">
@@ -363,21 +270,18 @@
       <div class="course-card"><h4>Python Text Adventure</h4><p>OOP command-line RPG with inventory system, branching story choices, and session logging.</p><div class="card-footer"><span class="pill">Python</span><span class="pill">OOP</span></div><a href="https://github.com/mcgavin1117/CS3620_Project1" target="_blank">GitHub ↗</a></div>
     </div>
   </div>
-
   <div class="course-group">
     <div class="course-label">CS 3280 — Windows Programming · C# / WPF</div>
     <div class="course-grid">
       <div class="course-card"><h4>Invoice Management System</h4><p>Windows desktop app for invoices with line items, auto-calculated totals, search, and clean layered architecture.</p><div class="card-footer"><span class="pill">C#</span><span class="pill">WPF</span><span class="pill">SQL</span></div><a href="https://github.com/mcgavin1117/InvoiceSystem" target="_blank">GitHub ↗</a></div>
     </div>
   </div>
-
   <div class="course-group">
     <div class="course-label">CS 2420 — Data Structures & Algorithms · Java</div>
     <div class="course-grid">
       <div class="course-card"><h4>EzRent — BFS Parking Navigator</h4><p>Java Swing app using Breadth-First Search on a matrix grid to find the shortest path to an open parking spot.</p><div class="card-footer"><span class="pill">Java</span><span class="pill">BFS</span><span class="pill">Swing</span></div><a href="https://github.com/mcgavin1117/EzRent" target="_blank">GitHub ↗</a></div>
     </div>
   </div>
-
   <div class="course-group">
     <div class="course-label">CSIS 1410 — Object-Oriented Programming · Java</div>
     <div class="course-grid">
@@ -418,7 +322,6 @@ function updateStats(){
 function showGameUI(){document.getElementById('gameTitleScreen').style.display='none';document.getElementById('gameUI').style.display='block';document.getElementById('gameOverPanel').style.display='none';document.getElementById('winPanel').style.display='none';}
 function showGameOver(){document.getElementById('gameUI').style.display='none';document.getElementById('gameOverPanel').style.display='block';document.getElementById('gameOverStats').textContent='You fell in battle with '+playerXP+' XP. '+(killGoblin?'Goblin slain. ':'')+  (killGiant?'Giant slain. ':'')+  (killDragon?'Dragon slain. ':'');}
 function showWin(){document.getElementById('gameUI').style.display='none';document.getElementById('winPanel').style.display='block';document.getElementById('winStats').textContent='You completed the quest with '+playerXP+' XP. The dragon is slain and the town is saved!';}
-function resetToTitle(){document.getElementById('gameTitleScreen').style.display='block';document.getElementById('gameUI').style.display='none';document.getElementById('gameOverPanel').style.display='none';document.getElementById('winPanel').style.display='none';}
 function doTownGate(){position='townGate';setText('You are at the gate of a well-fortified town.\nA guard is standing in front of you.');setChoices('Talk to the guard','Attack the guard','Inquire of the guard','Leave');updateStats();}
 function doEnterTown(){position='enterTown';playerXP=100;setText('The guard opens the town gate.\nYou enter the town and are lauded as a hero.\n\nVICTORY');setChoices('>','','','');updateStats();setTimeout(showWin,1200);}
 function doTalkGuard(){position='talkGuard';if(killDragon===1){setText('Guard: The dragon slayer has arrived!\nAll hail the dragon slayer!');setChoices('Enter the town','','','');}else if(talkGuard===0&&helpGuard===0){setText('Guard: Hello stranger. You must be new around here.\nI\'m sorry we cannot let a stranger enter our town.');playerXP+=3;talkGuard++;setChoices('>','','','');}else if(talkGuard===1&&helpGuard===0){setText('Guard: I thought I told you we don\'t let strangers enter our town.');talkGuard++;setChoices('>','','','');}else if(talkGuard>1&&helpGuard===0){const d=playerHP>2?3:1;clampHP(d);setText('Guard: You just don\'t listen do you!\nThe guard attacked you!\n\n(You receive '+d+' damage)');talkGuard++;setChoices('>','','','');}else{setText('Guard: Please slay that dragon as quickly as possible!');setChoices('>','','','');}updateStats();}
@@ -427,7 +330,26 @@ function doInquireGuard(){position='inquireGuard';setText('You ask the guard why
 function doLaughGuard(){position='laughGuard';const d=playerHP>2?3:1;clampHP(d);setText('Guard: YOU DARE MOCK ME!\n\n(The guard attacks you and you receive '+d+' damage)');setChoices('>','','','');updateStats();}
 function doHelpGuard(){position='helpGuard';setText('You offer to slay the dragon.\nThe guard takes you to the armory and gives you a long sword, a shield, and an old suit of armor.');weapon='Long Sword';defBonus+=3;if(helpGuard===0){playerXP+=2;helpGuard++;}setChoices('Embark on your quest','Talk to the guard','','');updateStats();}
 function doCrossRoads(){position='crossRoads';if(crossRoads===0){playerXP+=5;crossRoads=1;}setText('You are at a crossroads.\nIf you go south, you will go back to the town.');setChoices('Go north','Go east','Go south','Go west');updateStats();}
-function doNorth(){position='north';if(north===0){playerXP+=3;north=1;}const healed=playerHP<totalPlayerHP-2;if(healed)restoreHP(totalPlayerHP-2-playerHP);if(helpMaiden===1)restoreMP(totalPlayerMP-playerMP);setText('You arrive at the base of a tall mountain.\nThere is a magical river. You drink the water and rest.'+(healed?'\n\n(You feel better)':''));setChoices('Climb the mountain','Go south','','');updateStats();}
+
+// FIXED: north() — matches original's 4-branch healing logic exactly
+function doNorth(){
+  position='north';
+  if(north===0){playerXP+=3;north=1;}
+  if(playerHP<(totalPlayerHP-2)&&helpMaiden===1){
+    playerHP=totalPlayerHP-2;playerMP=totalPlayerMP;
+    setText('You arrive at the base of a tall mountain.\nThere is a magical river.\nYou drink the water and rest at the riverside.\n\n(You feel better)');
+  }else if(playerHP<(totalPlayerHP-2)&&helpMaiden===0){
+    playerHP=totalPlayerHP-2;
+    setText('You arrive at the base of a tall mountain.\nThere is a magical river.\nYou drink the water and rest at the riverside.\n\n(You feel better)');
+  }else if(playerHP>=(totalPlayerHP-2)&&helpMaiden===1){
+    playerMP=totalPlayerMP;
+    setText('You arrive at the base of a tall mountain.\nThere is a magical river.\nYou drink the water and rest at the riverside.\n\n(You feel better.)');
+  }else{
+    setText('You arrive at the base of a tall mountain.\nThere is a magical river.\nYou drink the water and rest at the riverside.\n\n(You feel better.)');
+  }
+  setChoices('Climb the mountain','Go south','','');updateStats();
+}
+
 function doClimbMountain(){position='climbMountain';if(askWoman===1&&killGiant===1&&killGoblin===1){if(climbMountain===0){playerXP+=3;climbMountain=1;}setText('During your ascent, you stumble upon a large, dark cave.');setChoices('Enter the dark cave','Go back down the mountain','','');}else if(killDragon===1){setText('You climb the mountain again. The dragon\'s body is still there.');setChoices('Go back down the mountain','','','');}else{clampHP(2);setText('During your ascent, it starts to rain. You slip and fall.\nYou must head back down.');setChoices('>','','','');}updateStats();}
 function doDescendMountain(){position='descendMountain';if(playerHP<totalPlayerHP-3){restoreHP(3);setText('You make it back to the river. You rest and recover.\n\n(You regain 3 HP)');}else{setText('You make it back to the river.');}setChoices('Climb the mountain','Go south','','');updateStats();}
 function doDragonLair(){position='dragonLair';if(dragonLair===0){playerXP+=5;dragonLair=1;}setText('You enter the dark cave and encounter the red dragon!');setChoices('Fight the dragon','Run','','');updateStats();}
@@ -446,7 +368,24 @@ function doFightGiant(){position='fightGiant';setText('Giant HP: '+giantHP+'\n\n
 function doPlayerAttackGiant(){position='playerAttackGiant';if(weapon==='Dagger')playerDamage=rand(5)+xpBonus;else if(weapon==='Long Sword')playerDamage=rand(10)+xpBonus;else playerDamage=rand(15)+xpBonus;giantHP-=playerDamage;setText('You attacked the giant and gave '+playerDamage+' damage!');setChoices('>','','','');updateStats();}
 function doGiantAttack(){position='giantAttack';let d=rand(10);if(d>6)d=Math.max(0,d-defBonus);clampHP(d);setText('The giant attacked you and gave '+d+' damage!');setChoices('>','','','');updateStats();}
 function doKillGiant(){position='killGiant';playerXP+=10;killGiant=1;weapon='Battle Axe';setText('You defeated the giant!\nThe giant dropped a battle axe!\n\n(You obtained a Battle Axe!)');setChoices('Go west','','','');updateStats();}
-function doWest(){position='west';if(west===0){west=1;setText('You reach a small village.');}else{setText('You return to the small village.');}if(helpMaiden===1&&killGoblin===0){setChoices('Travel west and kill the goblin','Enter the local tavern','Return to the crossroads','');}else{setChoices('Continue your journey west','Enter the local tavern','Return to the crossroads','');}updateStats();}
+
+// FIXED: west() — adds XP on first visit, correct choice logic per original
+function doWest(){
+  position='west';
+  if(west===0){
+    playerXP+=2;west=1;
+    setText('You reach a small village.');
+    setChoices('Continue your journey west','Enter the local tavern','Return to the crossroads','');
+  }else if(helpMaiden===1&&killGoblin===0){
+    setText('You return to the small village.');
+    setChoices('Travel west and kill the goblin','Enter the local tavern','Return to the crossroads','');
+  }else{
+    setText('You return to the small village.');
+    setChoices('Continue your journey west','Enter the local tavern','Return to the crossroads','');
+  }
+  updateStats();
+}
+
 function doEnterTavern(){position='enterTavern';if(enterTavern===0){playerXP+=1;enterTavern=1;}if(helpMaiden===0){setText('You enter the local tavern.\nA beautiful maiden catches your eye.');setChoices('Make small talk with the maiden','Leave the tavern','','');}else{setText('You enter the local tavern.\nYou see the maiden sitting in the corner.');setChoices('Talk with the maiden again','Leave the tavern','','');}updateStats();}
 function doSmallTalkMaiden(){position='smallTalkMaiden';if(smallTalkMaiden===0){playerXP+=1;smallTalkMaiden=1;}setText('You approach the maiden. She starts crying and tells you a goblin killed her entire family.');setChoices('Offer to help','Leave the tavern','','');updateStats();}
 function doHelpMaiden(){position='helpMaiden';if(helpMaiden===0){playerXP+=2;helpMaiden=1;}playerMP=totalPlayerMP;setText('You offer to kill the goblin. The maiden gives you her amulet.\nMaiden: This will protect you, my hero.\n\n(You receive an amulet with magical properties.)');setChoices('Start your goblin hunt','Talk to the maiden again','','');updateStats();}
